@@ -30,8 +30,8 @@ function addInitals(event){
 
   document.forms[0].reset();
   formIn.style.display = "none";
-  scores.style.display = "block";
-  quizTextBox.style.display = "none";
+  showScores();
+  setScores();
 }
 
 
@@ -46,8 +46,15 @@ function showScores(){
     scores.style.display = "none";
     quizTextBox.style.display = "block";
   }
-  scores.textContent="High Score: " + localStorage.getItem("name") +" "+ localStorage.getItem("scoreData") ;
+  
+  if(localStorage.getItem("name").length!=0){
+    scores.textContent="High Score: " + localStorage.getItem("name") +" "+ localStorage.getItem("scoreData");
+  }
 
+}
+
+function setScores(){
+  scores.textContent="High Score: " + localStorage.getItem("name") +" "+ localStorage.getItem("scoreData");
 }
 
   function showAnds(){
